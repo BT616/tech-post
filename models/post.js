@@ -41,4 +41,4 @@ Post.init(
         modelName:'post'
     });
 
-modules.exports = Post
+modules.exports = post
