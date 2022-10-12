@@ -1,44 +1,18 @@
-const { Model, DataTypes, INTEGER } = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-const { post } = require('../controllers/api');
+const bcrypt = require('bcrypt');
 
 class Post extends Model { }
 
 Post.init(
-
     {
-        id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            autoIncrement: true,
-            primaryKey: true
-        },
-        title: {
-            type: DataTypes.STRING,
-            body: DataTypes.STRING,
-            allowNull: false,
-            unique: true
-        },
-        content:{
-            type:DataTypes.STRING,
-            allowNull:false
+        title: DataTypes.STRING,
+        body: DataTypes.STRING,
 
-        }, user_id:{
-                type:DataTypes.INTEGER,
-                refrences:{
-                    model:'user',
-                    key:'id'
-                }
 
-        }
     },
     {
-        sequelize,
-        timestamps:true,
-        updatedAt: false,
-        freezeTableNae: true,
-        underscored:true,
-        modelName:'post'
+        sequelize
     });
 
-modules.exports = post
+module.exports = Post;
