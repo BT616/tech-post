@@ -15,4 +15,5 @@ Comment.init(
 {
      sequelize
     });
+    
 module.exports= Comment;
